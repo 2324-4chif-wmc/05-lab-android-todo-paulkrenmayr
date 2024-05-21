@@ -4,7 +4,7 @@ Thomas Stütz
 :imagesdir: img
 :icons: font
 :sectnums:    // Nummerierung der Überschriften / section numbering
-// :toc:
+//:toc:
 // :toclevels: 1
 :experimental:
 //https://gist.github.com/dcode/0cfbf2699a1fe9b46ff04c41721dda74?permalink_comment_id=3948218
@@ -17,6 +17,63 @@ ifdef::env-github[]
 endif::[]
 
 image::https://img.shields.io/badge/version-1.0.0-blue[]
+
+
+[sidcrete]
+== Eigen dokumentation
+
+=== 1. Aufgabe
+Alles, was im Ordner "todo" entstanden ist, wurde im Zuge der Ausarbeitung von Aufgabe 1 und 2 erstellt.
+
+Ich habe verschiedene Dateien erstellt, wobei die Datenstruktur im Ordner "Model" liegt und sich dort auf die Dateien "Mode.java" und "Todo.java" aufteilt. In den anderen Dateien sind verschiedenste Funktionen enthalten, um den "single source of truth" einzuhalten und die Daten über einen REST-Endpoint zu laden.
+
+Das Model schaut folgendermaßen aus:
+[source,java]
+----
+public class Model {
+    public static class UIState {
+        public int selectedTab = 0;
+    }
+    public Todo[] todos = new Todo[0];
+    public UIState uiState = new UIState();
+}
+
+----
+
+und ein Todo so:
+[source,java]
+----
+public class Todo {
+    public Long userId;
+    public Long id;
+    public String title;
+    public boolean completed;
+
+    public Todo() {
+    }
+}
+----
+Das ist die komplette Struktur des Codes
+
+image::Structure.png[Structure from Android view, 400]
+
+=== 2. Aufgabe
+Das Frontend habe ich natürlich auch verändert und auf zwei Seiten ausgebaut. Es sieht nun folgendermaßen aus:
+
+Home:
+
+image::Frontend-Home.png[Home Frontend Bild,200]
+Todos:
+
+image::Frontend-Todos.png[Todos Frontend Bild,200]
+
+Die einzelnen Todos kann man auf complete setzten was auch im hintergrund verändert wird durch diese Funktion welche im Model Store vorhanden ist:
+[source,java]
+----
+    public void setTodoDone(Todo todo, boolean done){
+        apply(model -> model.todos[todo.id.intValue()-1].completed = done);
+    }
+----
 
 [sidcrete]
 == Dokumentation
@@ -58,4 +115,3 @@ IMPORTANT: Ziel ist es, dass die von Ihnen geleistete Arbeit auch "gefunden" und
 ** Ausgabe der Daten auf UI (Jetpack Compose)
 
 * Verwenden Sie hierzu ein neues Unterverzeichnis.
-
