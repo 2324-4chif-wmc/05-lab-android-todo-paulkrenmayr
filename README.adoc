@@ -75,6 +75,14 @@ Die einzelnen Todos kann man auf complete setzten was auch im hintergrund verän
     }
 ----
 
+=== 3. Aufgabe
+In dieser Aufgabe habe ich zur Übung die Todo-Aufgabe neu implementiert und habe mich zusätzlich noch mit Bildern auseinandergesetzt wobei ich dafür den json-placeholder endpoint verwendet habe.
+
+image::trainingProject/Frontend-Home.png[Frontend Home,200]
+image::trainingProject/Frontend-Pictures1.png[Frontend Pictures select amount of Pictures, 200]
+image::trainingProject/Frontend-Pictures2.png[Frontend display Pictures, 200]
+image::trainingProject/Frontend-Todos.png[Frontend display Todos,200]
+
 [sidcrete]
 == Dokumentation
 
