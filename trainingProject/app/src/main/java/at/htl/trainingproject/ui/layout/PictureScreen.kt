@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import at.htl.trainingproject.R
 import at.htl.trainingproject.model.Model
 import at.htl.trainingproject.model.ModelStore
-import at.htl.trainingproject.model.pictures.Picture
+import at.htl.trainingproject.model.picture.Picture
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 

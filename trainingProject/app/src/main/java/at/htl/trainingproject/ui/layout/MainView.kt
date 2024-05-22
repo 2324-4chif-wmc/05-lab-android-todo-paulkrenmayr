@@ -9,7 +9,8 @@ import androidx.compose.ui.platform.ComposeView
 
 import at.htl.trainingproject.model.Model
 import at.htl.trainingproject.model.ModelStore
-import at.htl.trainingproject.model.pictures.PictureService
+import at.htl.trainingproject.model.picture.PictureService
+import at.htl.trainingproject.model.post.PostService
 import at.htl.trainingproject.model.todo.TodoService
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
@@ -27,6 +28,8 @@ class MainView @Inject constructor(){
     lateinit var toDoService: TodoService
     @Inject
     lateinit var pictureService: PictureService
+    @Inject
+    lateinit var postService: PostService
 
     fun buildContent(activity: ComponentActivity) {
         val view = ComposeView(activity)
@@ -35,7 +38,7 @@ class MainView @Inject constructor(){
             Surface(
                 modifier = Modifier.fillMaxSize()
             ) {
-                TabScreen(viewModel, store, toDoService,pictureService)
+                TabScreen(viewModel, store, toDoService,pictureService,postService)
             }
         }
         activity.setContentView(view)

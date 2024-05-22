@@ -1,4 +1,4 @@
-package at.htl.trainingproject.model.pictures;
+package at.htl.trainingproject.model.picture;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;

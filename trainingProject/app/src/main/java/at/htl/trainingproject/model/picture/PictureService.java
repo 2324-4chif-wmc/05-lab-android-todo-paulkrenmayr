@@ -1,4 +1,4 @@
-package at.htl.trainingproject.model.pictures;
+package at.htl.trainingproject.model.picture;
 
 import android.util.Log;
 
@@ -7,13 +7,12 @@ import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 
 import at.htl.trainingproject.model.ModelStore;
-import at.htl.trainingproject.model.todo.TodoClient;
 import at.htl.trainingproject.model.todo.TodoService;
 import at.htl.trainingproject.util.resteasy.RestApiClientBuilder;
 
 public class PictureService {
 
-    static final String TAG = TodoService.class.getSimpleName();
+    static final String TAG = PictureService.class.getSimpleName();
     public static String JSON_PLACEHOLDER_BASE_URL = "https://jsonplaceholder.typicode.com";
     public final PictureClient pictureClient;
     public final ModelStore store;

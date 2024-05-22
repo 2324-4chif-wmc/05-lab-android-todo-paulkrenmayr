@@ -2,7 +2,9 @@ package at.htl.trainingproject.ui.layout
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -15,13 +17,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import at.htl.trainingproject.model.Model
 import at.htl.trainingproject.model.ModelStore
-import at.htl.trainingproject.model.pictures.PictureService
+import at.htl.trainingproject.model.picture.PictureService
+import at.htl.trainingproject.model.post.PostService
 import at.htl.trainingproject.model.todo.TodoService
 
 @Composable
-fun HomeScreen(model: Model, toDoService: TodoService?, pictureService: PictureService?, store: ModelStore?) {
+fun HomeScreen(model: Model, toDoService: TodoService?, pictureService: PictureService?,postService: PostService?, store: ModelStore?) {
     val todos = model.todos;
     val pictures = model.pictures;
+    val posts = model.posts;
     Column (modifier = Modifier.fillMaxSize()){
         Text(
             text = "Welcome Home!",
@@ -49,6 +53,21 @@ fun HomeScreen(model: Model, toDoService: TodoService?, pictureService: PictureS
                     store?.setPictures(arrayOf())
                 }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
                     Text("Clear Pictures")
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    "${posts.size} Posts have been loaded",
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+                Button(onClick = {
+                    postService?.getAll()
+                }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                    Text("Load Posts")
+                }
+                Button(onClick = {
+                    store?.setPosts(listOf())
+                }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                    Text("Clear Posts")
                 }
             }
 

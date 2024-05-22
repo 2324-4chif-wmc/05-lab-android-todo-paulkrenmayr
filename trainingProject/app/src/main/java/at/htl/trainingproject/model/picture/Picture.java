@@ -1,4 +1,4 @@
-package at.htl.trainingproject.model.pictures;
+package at.htl.trainingproject.model.picture;
 
 public class Picture {
     public Long albumId;

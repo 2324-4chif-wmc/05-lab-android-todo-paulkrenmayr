@@ -1,9 +1,12 @@
 package at.htl.trainingproject.model;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import at.htl.trainingproject.model.pictures.Picture;
+import at.htl.trainingproject.model.picture.Picture;
+import at.htl.trainingproject.model.post.Post;
 import at.htl.trainingproject.model.todo.Todo;
 import at.htl.trainingproject.util.store.Store;
 
@@ -23,6 +26,14 @@ public class ModelStore extends Store<Model> {
     }
     public void setPicturesShown(int picturesShown) {
         apply(model -> model.uiState.picturesShown = picturesShown);
+    }
+    public void setPosts(List<Post> posts) {
+        apply(model -> model.posts = posts);
+    }
+    public void addPost(Post post) {
+        apply(model -> {
+            model.posts.add(post);
+        });
     }
     public void selectTab(int tabIndex) {
         apply(model -> model.uiState.selectedTab = tabIndex);
